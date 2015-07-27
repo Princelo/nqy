@@ -4,6 +4,7 @@
 <title>ECSHOP Menu</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="styles/general.css" rel="stylesheet" type="text/css" />
+<script src="http://libs.baidu.com/jquery/1.8.0/jquery.js"></script>
 <script language="JavaScript">
 <!--
 var noHelp   = "<p align='center' style='color: #666'>{$lang.no_help}</p>";
@@ -384,12 +385,50 @@ Object.extend(ToggleHanlder ,{
     date.setTime(date.getTime() + 99999999);
     document.setCookie(this.CookieName, "{}" , date.toGMTString());
   },
+  isPlainObject: function( obj ) {
+    var key;
+
+    // Must be an Object.
+    // Because of IE, we also have to check the presence of the constructor property.
+    // Make sure that DOM nodes and window objects don't pass through, as well
+    if ( !obj || jQuery.type(obj) !== "object" || obj.nodeType || jQuery.isWindow( obj ) ) {
+      return false;
+    }
+
+    try {
+      // Not own constructor property must be Object
+      if ( obj.constructor &&
+              !core_hasOwn.call(obj, "constructor") &&
+              !core_hasOwn.call(obj.constructor.prototype, "isPrototypeOf") ) {
+        return false;
+      }
+    } catch ( e ) {
+      // IE8,9 Will throw exceptions on certain host objects #9897
+      return false;
+    }
+
+    // Support: IE<9
+    // Handle iteration over inherited properties before own properties.
+    if ( jQuery.support.ownLast ) {
+      for ( key in obj ) {
+        return core_hasOwn.call( obj, key );
+      }
+    }
+
+    // Own properties are enumerated firstly, so to speed up,
+    // if last one is own, then all properties are own.
+    for ( key in obj ) {}
+
+    return key === undefined || core_hasOwn.call( obj, key );
+  },
 
   Load : function()
   {
-    if (document.getCookie(this.CookieName) != null)
+    if (document.getCookie(this.CookieName) != null && !this.isPlainObject(document.getCookie(this.CookieName)) )
     {
-      this.SourceObject = eval("("+ document.getCookie(this.CookieName) +")");
+      console.log(document.getCookie(this.CookieName));
+      //this.SourceObject = eval("("+ document.getCookie(this.CookieName) +")");
+      this.SourceObject = document.getCookie(this.CookieName);
       var items = document.getElementsByTagName('LI');
       for (var i = 0; i < items.length; i++)
       {
