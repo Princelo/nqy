@@ -255,7 +255,7 @@ elseif($action == 'oath')
 		header("location:includes/website/tb_index.php");exit;
 	}
 	
-	include_once(ROOT_PATH . 'includes/website/jntoo.php');
+	//include_once(ROOT_PATH . 'includes/website/jntoo.php');
 
 	$c = &website($type);
 	if($c)
@@ -299,7 +299,7 @@ elseif($action == 'oath_login')
 {
 	$type = empty($_REQUEST['type']) ?  '' : $_REQUEST['type'];
 	
-	include_once(ROOT_PATH . 'includes/website/jntoo.php');
+	//include_once(ROOT_PATH . 'includes/website/jntoo.php');
 	$c = &website($type);
 	if($c)
 	{
