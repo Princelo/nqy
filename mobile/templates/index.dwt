@@ -139,7 +139,7 @@ function chkSearch() {
         <div class="imgurl"> <img data-original="images/ad6.jpg" style="display: inline;" src="images/ad6.jpg"> </div>
       </div>
       <a href="goods_list.php?type=promote" class="targeturl"></a>
-      <!--<div class="item-lay">
+      <<div class="item-lay" style="display:none">
       	<!--{foreach from=$promote_goods item=goods name=goods}-->
         <!--{if $smarty.foreach.goods.index <= 1}-->
         <div class="item-l"> <a href="{$goods.url}"> <span class="imgurl"> <img data-original="./../{$goods.goods_img}"
@@ -149,7 +149,7 @@ function chkSearch() {
           </a> </div>
         <!--{/if}-->
         <!--{/foreach}-->
-      </div>-->
+      </div>
     </div>
   </div>
   <div class="card">
@@ -158,7 +158,7 @@ function chkSearch() {
         <div class="imgurl"> <img data-original="images/ad7.jpg" style="display: inline;" src="images/ad7.jpg"> </div>
       </div>
       <a href="goods_list.php?type=new" class="targeturl"></a>
-      <!--<div class="item-lay">
+      <div class="item-lay" style="display: none;">
       	<!--{foreach from=$new_goods item=goods name=goods}-->
         {if $smarty.foreach.goods.index <= 2}
         <div class="item-l"> <a href="{$goods.url}"> <span class="imgurl"> <img data-original="./../{$goods.original_img}"
@@ -168,7 +168,7 @@ function chkSearch() {
           </a> </div>
         {/if}
         <!--{/foreach}-->
-      </div>-->
+      </div>
     </div>
   </div>
    <!--第1个分类调用开始-->
