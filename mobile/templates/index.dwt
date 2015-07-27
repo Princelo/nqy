@@ -139,7 +139,7 @@ function chkSearch() {
         <div class="imgurl"> <img data-original="images/ad6.jpg" style="display: inline;" src="images/ad6.jpg"> </div>
       </div>
       <a href="goods_list.php?type=promote" class="targeturl"></a>
-      <<div class="item-lay" style="display:none">
+      <div class="item-lay" style="display:none">
       	<!--{foreach from=$promote_goods item=goods name=goods}-->
         <!--{if $smarty.foreach.goods.index <= 1}-->
         <div class="item-l"> <a href="{$goods.url}"> <span class="imgurl"> <img data-original="./../{$goods.goods_img}"
